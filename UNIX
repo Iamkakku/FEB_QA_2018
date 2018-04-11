@@ -1,0 +1,81 @@
+Why we need learn Unix for testing?
+You need to know about UNIX because This UNIX OS most of company using now a days at server side..…if you are doing server-side development..if you are only working with desktop application then you can skip learning about UNIX.
+Windows - at a time only one user allow to login to system.
+Most of company uses UNIX/LINUX as server. They have higher priority.
+Types of OS:-
+3 Types:-
+1)	Single user and Single tasks.- if one user login other cannot login. logged user able to perform only one task at a time.
+Ex. MS. Dos-- CUI OS(Command User Interface)—without completing one command execution we cannot execute other command.
+2)	Single user and Multitask.-only one user, multiple task-(music,word)…
+User friendly OS.
+EX.  Windows…
+GUI - Graphical user interface you can also execute command using command windows..
+3)	Multiuser and Multitask.
+More them one users..
+
+UNIX---OS—S/W Collection of programmer
+unix written in C Language.
+Developed in 1950’s
+Linux developed in 1991.—open source..
+
+
+Portable OS it can run on different hardware platforms.
+
+What is Operating System?
+We can say Software..or set of Prog. Which helps to process your request.
+OS- Windows, Mac OS, Unix/Linux.
+Mobile- Android,Blackberry….etc.
+It acts as an interface/middleware between user and Hardware.
+
+Tasks of OS:-
+1.	IO Management
+2.	Memory Management
+3.	File Management
+4.	Process Management
+5.	Device Management
+- so In real time code which is available locally you can deploy that code in server so that other people can use that.
+ Give example of search movieu
+Using putty we can connect multiple systems to server..putty is a software..
+2) What is a UNIX shell?
+The UNIX shell is a program which is used as an interface between the user and the UNIX operating system. It is not a part of the kernel but it can communicate directly with the server.
+ 
+3) what is kernel?
+ Kernel is the master program with UNIX operating system that controls the resources of the computer. The resources allocation to different users and tasks handle by this section. Kernel do not have direct communication with the user and it starts separate interactive program call shell to each user when login to the system.
+
+	How to create file using cat.
+Cat > ex
+- Create other “mkdir d1”
+Cat ex f1 f2 - multiple file data.
+	How to add data in file.
+Cat >> ex
+	Copy file into another 
+Cp ex f3(newfile)
+If you are add  old file data(f1) into another old file.
+Cp f1 f2 - here f1 will override into f2..no more data of f2)
+	Remove(delete)
+rm f4
+	Change the file name( move one file into otherfile)
+mv ex example.
+Physically need to transfer
+Mv example d1
+ls d1 (check “example” file in directory)
+
+	link file--- only link old file with newfile.
+ln e1(oldfile) e2(newfile)
+
+	count data from console
+$wc 
+welcome to whitebox
+
+	count data from file.
+$wc –c
+Welcome
+$wc –e1(filename)
+$wc –l e1 (only line)
+$wc –c e1(only character)
+
+
+ 
+
+
+
