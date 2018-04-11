@@ -1,0 +1,92 @@
+Performance Testing - non functional testing
+
+Why we need Performance Testing?
+           to check how the app responds
+           response time
+           latency
+Types of Performance Testing:-
+ Load Testing: to check for number of users, transaction 
+Stress Testing: find break point application
+Volume Testing:- database. check for more data
+Spike Testing: to check of unusual increase or decrements ( just for one day or hour) 
+Endurance Testing: validate for a long periods of time .
+Scalability Testing: network , capability of system, processors,
+
+
+why do we need to check how the application is responding?
+ ip address- 133.45.454.343--- walmart
+
+ web server: it will be static page only (html )
+  multiple web server for each region.
+load balancer: will check is this web server has place to serve? 
+send  req to any web server who is available ...
+
+JMeter:- We need a tool to simulate the environment needed for performance testing 
+ Load Runner:- paid , license
+JMeter - open source, 100% java application, platform independent
+
+
+ If Response Time is too big..
+server configuration is not good
+increase RAM, Processor
+ May be Application too complex.
+SQl Query running with database 
+
+Test Plan :- test plan is container . it will contain one or more elements ... test plan must have at least one thread group.
+ workbench node:- it simply provides a place to temporarily store test elements while not in use, copy/paste purposes.  when you save test plan , workbench item will not save with it.
+
+ to Stop test Plan :-
+ STOP:- it will stop the threads immediately if possible
+SHUT DOWN:- it requests the threads to stop at the end of any current work
+
+ Thread Group : number of users..
+   Number of users:--- users
+Ramp up----- how long it will take JMeter to get all threads running 
+Loop count ---- number of times to execute the test.
+
+ Controllers:
+ two types:- Sampler and Logic Controller
+Sampler:- allows JMeter to send specific types of requests to server
+Logic Controller:-  let you control the order of processing of samplers in thread.
+
+Listener:- it let you view results of samplers in form of tables, graphs, tree, simple text in log file..
+
+Timer:- by default , Jmeter threads sends reqs without pausing between each sampler. you can add timer element which allows you to define period to wait between each request.
+
+ Assertion:-  allow you to add validation test on response. using that you can prove that your application is returning correct data or not.
+
+Config Elements:- allow you to create defaults and variables to be used by samplers.. used to add and modify requests.
+
+Pre- processors:- is something that you want to execute just before a sampler.
+Post- processors:- it executes after a sampler finishes its executes.  used to process response data.
+
+Executing order of test elements:-
+Configuration elements
+Pre Processor
+Timers
+Sampler
+Post Processor (unless sample result is null)
+Assertion  (unless sample result is null)
+Listener  (unless sample result is null)
+ 
+What is difference between URL and URI?
+URL- www.whiteboxqa.com
+ subset of URI
+
+URI- ipaddress/path?query string 
+
+Proxy Server - it is an Intermediate between client and server
+
+BlazeMeter:- to record script
+
+
+
+
+
+
+
+
+
+
+
+
