@@ -1,0 +1,376 @@
+
+Create file using “vi” à vi <filename>
+.sh -->extension
+--> it will go to vi editor..
+press "i"
+press "ESC"
+TYPE:-  :wq!
+
+sh script.sh
+
+:wq!      - save the file exit from vi editor..
+
+:q!     without saving changes  exit.
+Grep:- scan documents
+
+Present the result in a format you want
+
+-v   à shows all the lines that do not match the searched string
+
+-c à display only the count of matching lines
+
+-n à shows the matching line and its number
+
+
+
+Pipe-
+
+The symbol  ‘|’ denotes a pipe
+
+Use pipes to run two commands consecutively.
+
+Cat file| grep string
+
+
+
+Sort-
+
+Sort – r filename   à reverse sorting
+
+Sort  -f filename à case insensitive sorting
+
+Process:-
+
+Ps command is used for listing the currently executing process
+
+$ps
+
+To kill the processà kill <PID>
+
+
+
+
+
+File Permissions:-
+
+
+
+What is permission?
+
+Accessibility….in simple word
+
+Each file has a set of permission that control who can mess with the file.
+
+There are three types of permissions:
+
+Read àindicates by r
+
+
+Writeàw
+Executeàx
+
+Level of Permission:-
+
+System level
+User level
+Group level
+There are sets of permission:
+
+User
+Group
+Other
+all
+When you list the all files you can see
+
+$ls –l
+
+Formate for permission
+
+_rw_rw_r_ _
+
+Permission mode:-
+
+We have  2 types
+
+Symbolic mode
+Absolute mode
+Symbolic modeà “+” adding permission
+
+                       “-“ remove
+
+                       “=”assigning
+
+Commandè $chmod (using this command we can change mode
+
+$sudo chmod u-r myfile 
+
+Absolute mode:-
+
+0-No permission(000) (rwx) 
+
+Execute(001) (rwx)=1
+Write(010)
+Write,execute(011)
+Read (100)=4
+Read ,execute (101)=5
+Read, write( 110)
+Read write execute( 111)=7
+What is LOG file?
+
+Log files are files that contain messages about the system, including the kernel, services, and applications running on it. There are different log files for different information. 
+
+What is shell is scripting:-
+
+A shell scripting is text file that contains a sequence of commands fro OS.
+
+$Vi first.sh
+
+
+
+SCRIPT 1:
+
+#PRINT THE VALUE
+
+x=10
+
+Echo “value x is :”$x
+
+Echo “todays’s date: `date` ”
+
+$sh First.sh
+
+SCRIPT 2:
+
+#second script to create directory and create file,add text
+
+mkdir script
+
+cd script
+
+Touch file1.txt
+
+Echo “hi” >f11.txt
+
+Cat f11.txt
+
+Echo “hello” > file2.txt
+
+Cat file2.txt
+
+$sh first.sh
+
+Script:3
+
+# sum,multiplication
+
+a=10
+
+b=20
+
+c=`expr $a + $b`
+
+d=`expr $a - $b`
+
+echo “sum is : “$c
+
+echo “sum is : “$d
+
+
+
+echo “multiplication :” `expr $a \* $b`
+
+SCRIPT:4
+
+#input from command line…
+
+count=$#
+
+echo “total cmd line arguments :” $count
+
+a=$1
+
+b=$2
+
+c=’expr $a + $b’
+
+echo “sum is: $c”
+
+echo “multiplication : ‘expr $a \* $b’ “
+
+
+
+Script:5
+
+#Input at a run time..
+
+echo “Enter first number:”
+
+read a
+
+echo “Enter second number:”
+
+read b
+
+c=`expr $a + $b`
+
+echo “sum is :” $c
+
+echo “mul is:” `expr $a \* $b`
+
+Script:6
+
+(for this need to create one file”  logfile.sh”)
+
+
+
+# read  recent 5 lines in log file with word exception
+
+Echo “this is reading log file script….”
+
+Tail -5 logfile.sh | grep exception
+
+
+
+You can also do-----
+
+filename=$1
+
+tail -5 filename | grep exception
+
+
+
+Script:
+
+# this is to demonstrate if  condn – to see if number is positive or not.
+
+input=$1
+
+if [ $input –lt 0 ]
+
+then
+
+echo “it is negative number”
+
+elif [ $input –gt 0 ]
+
+then
+
+echo “it is positive number”
+
+else
+
+echo “it is zero”
+
+fi
+
+------------logic:----------
+
+if(num>0)
+
+it is positive
+
+else if(num<0)
+
+id is negative
+
+
+
+Script:
+
+#switch case example:
+
+case $1 in
+
+         “car”) echo “this is $1”;;
+
+“bus”) echo “this is $1”;;
+
+“car”) echo “this is $1”;;
+
+“car”) echo “this is $1”;;
+
+*)echo “sorry,..not found match”;;
+
+esac
+
+
+
+
+
+-------------------------------
+
+switch(day)
+
+case mon: it is mon
+
+case tue:it is tue
+
+case wed:it is wed
+
+case thu: it is thu
+
+
+
+
+
+Script:
+
+Logic:
+
+print all numbers till 10
+
+i=0
+
+while(i<10){
+
+print hello
+
+i++;
+
+}
+
+
+
+#while loop example – display table “n”
+
+n=$1
+
+i=1
+
+while [ $i –le 10 ]
+
+do
+
+echo “ $n * $i = `expr $n \* $i` “
+
+i=`expr $i +1`
+
+done
+
+
+
+
+
+
+
+
+
+
+
+SCRIPT:
+
+Logic:
+
+for(int I in 1 2 3 4)
+
+Print hello
+
+# this is basic for loop
+
+for i in 1 2 3 4 5
+
+do
+
+echo “hello : : ”$i
+
+done
