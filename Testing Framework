@@ -1,0 +1,57 @@
+JUnit
+
+test classes---test page classes
+Unit testing :-
+Junit is unit testing framework for java
+
+
+What is a Unit testcase?--part of code
+
+Features of JUNIT:-
+open source, you can for writing and running test cases
+annotation to identify test methods
+asserts--expected and actual
+
+
+
+java--unit---class ,method
+JUNIT--JAVA ----UNIT FAMILY
+NUNIT
+PUNIT
+xunit family
+
+
+page classes--- logic
+test classes--- test method to test that logic--assertions..
+
+JUNIT3  VS. JUNIT4
+
+JUNIT 3- STRICTLY TYPE----
+SOME RULES..
+LoginPage==page class
+ ----login()
+LoginPageTest----test classes
+-----testlogin()
+
+all test method should starts with "testlogin"
+test class you have extends TestCase class....
+     public class LoginPageTest extends TestCase
+assert here in test class
+
+Test Suite:----collection of test cases
+@Runwith, @suite
+Test Case:--- java class-- test methods
+
+
+@ignore- it will ignore test method execution
+@test(timeout=200)- 200ms if element is not present it will through error-
+@Before---before all test methods
+@After--after all test methods
+@BeforeClass- run once before any of the test nethod in the class
+@AfterClass
+
+
+
+
+
+
