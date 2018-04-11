@@ -1,0 +1,144 @@
+Configuration testing:-
+OS, Browser, Installation testing , Version ..
+
+Security Testing:- authentication , authorization , captcha, security question
+ captcha - you cann't automate..
+ 
+authentication -  process of verifying who you are. when you log on to PC with a user name and password 
+authorization - process of verifying that you have access to do something . 
+
+Test Techniques:- 
+
+Equivalence partitioning :- Inputs to application are divided into groups that are expected to exhibit similar behaviour
+condition- (1 to 10)
+ <1 , >10, 1-10
+input:-  positive i/p- 2,6,8,
+          negative - 0, 12 15 
+
+log in page:- valid , invalid, user name blnk, pwd is blank.
+
+Boundary value analysis:-  at boundary values , just before and just after the boundary value.
+
+condition - 1-10
+i/p-
+boundary values - 1, 10
+ just before value- 0, 9
+just after value- 2, 11
+1, 10, 0,9,2,11
+
+real time -- time date
+
+
+today 6th march
+date-time
+
+6th - 12:00
+6th- 11:59 pm
+7th - 12:01 am
+
+Error Guessing-  random input test your application
+Exploratory testing:- domain is not know. you will learn , study , discover new thing, experiment.
+   domain - banking, eCommerce, health care....
+
+
+Defect Life Cycle/ Bug : (IQ)
+
+QA  - find a defect - Status -new- 
+QA will assign that defect to Developer- status Assign
+Developer will fix that defect - status - fixed
+QA will test it again- Retest
+Still defect is not resolve - Reopen
+Developer will Fix it again.. come for testing
+QA will test again --if now defect if fixed- Closed
+if according to QA previously you fixed same type of defect - Duplicate
+
+
+Priority :- according to developer point of view important of defect
+       
+Severity :- according to QA point of view important of defect
+        
+High Priority high severity:-  major functionality is not working eg. application  is launching in browser 
+
+Low priority low severity :-  font style, color, size... look and feel....
+
+high priority low severity:-  Company Logo , Company Name. 
+
+low priority high severity : - help , contact -- which we are not daily .. , functionality not working so as QA is imporatant
+
+When we logging a defect . Defect details/ information.: Defect ID, Description, Priority , Severity, Status, Assign to , Start date, end date, Remarks, Attachment ( SRS, BRD, Screen shot ), Iteration, release, test case, project 
+
+Test Plan :- by QA lead.. how to do? ,
+         testing  types, test techniques, start date , end date, iteration , release, risk analysis
+        
+ 
+Test Strategy :-  By product owner.--
+
+.. what to do?
+         project objective, scope, detail information about modules and project.
+
+
+Test Case :-  By QA tester 
+                  Test case ID, test case description, steps, owner name, date of creation , modify date, remarks, Browser, Expected out put , actual output, pass/fail
+
+
+
+Software Testing Life Cycle (STLC)
+
+      Requirement Analysis:- QA with interact with BA, Client, Lead to understand requirements in details.
+ req can be functional or non functional
+ deliverable:-  RTM (Requirement Tractability Matrix )
+Test planning:- QA Lead will determine effort  and cost estimation for that project ..prepare one document test plan.
+
+       prepare test plan/ test strategy document for various types of testing
+Test tool selection
+resource planning and roles and responsibilities.
+deliverable:-  Testplan/test strategy document
+effort estimation document
+
+
+Test Case Development :- creation, verification and rework of test cases & test scripts. 
+ create test cases, automation script
+review test cases and scripts
+create test data
+deliverable:- test cases/ scripts
+test data
+
+Test Environment Setup :- 
+ decides s/w and h/w condition under which work product is tested. can be done parallel with test case development
+deliverable:- environment ready with test data set up
+smoke test results
+
+
+Test Execution:- testers will carry out testing based on test plan and test cases documents.
+ bug willbe report back to dev team of correction and retesting 
+Deliverable:- Test cases will get updated with results
+
+Test Cycle Closure:-  QA is there any high priority defect or not ? 
+ if high then fix the issue. if low priority than   check with client . if client is ready than you can release that s/w. but  you have to provide release note.
+release  note:- you are mentioning all low priority defect 
+Deliverable :- release note, report 
+
+
+What are the things to be done from tester side before raising defect
+Recreate Defect :- once you find a defect , we must try to recreate  3time-
+
+ attach the screen shot write defect in easy way and clear. 
+log defect:- we need to use tool .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
