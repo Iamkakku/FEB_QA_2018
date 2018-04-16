@@ -1,0 +1,682 @@
+What is a data ?
+ Data:
+Data is an information. Any information pertaining to real time which may be an object /entity/attribute/property can be defined as Data.
+
+Collection of information an application should deal with 
+    WBL, Facebook, Bank, Amazon
+     SocialMedia,  E-Commerce, Banking, Training,...
+
+Here data can be name, age, file, pdf, image, etc.
+
+Database:
+It is a software or collection of programs that helps to manage and organize data so that u can easily access, manage and update it.
+
+ CRUD:
+ Popular DB’s - Oracle, MySQL, SQL server --SQL -structure defined
+MongoDB, Cassandra, HBase etc—NoSQL
+Types of databases
+ -- Relational Databases, Operational database, Distributed database, 
+ 
+ Relational Database - what is the link between different table
+
+Explain NoSQL DB.
+No Structure, Collections, documents/records, No relationships, Key - Value pairs
+Format can be JSon or tree, Used for large applications where scalability is important,
+It is dynamic, Related information is stored together. 
+
+Purpose of DB
+To store data, provide organizational structure for data, mechanism for crud operations.
+Example of CRUD operations
+register/signup , sign in, update address/phno, remove record/unsubscribe
+
+DBMS - Database Mgmnt sys
+It is a software tool to organize data in database.
+It is collection of programs which allows its users to access data, manipulate data and help in representation of data. It also helps control access to the DB by different users. It is an interface between user and database.
+ 
+DB has several components
+ 
+● 	External Interface : it is the user interface which is used to communicate with the DBMS as well as the databases. It is like GUI which helps to communicate with the DBMS  eg. MySQL Workbench
+
+● 	DB language engine : it is the one which interprets the query language and do the necessary action supplied using the query language
+● 	Query optimizer : used to optimize the supplied query language and identifies the best plan for executing the query and obtaining the result as fast as it could.
+● 	DB engine - used to create or manipulate the data in the DB objects like table.
+● 	Storage engine
+● 	DBMS management component - it comprises of several other components. They are used to take DB backups, performance monitoring, security management etc.
+ 
+ Types of DBMS
+-Navigational
+ -RDBMS
+-SQL DBMS
+-Object Oriented databases
+
+RDBMS- ER, pk,fk, indexes
+
+Tables- which helps to store data in rows and columns
+Eg. Products, orders, customers
+
+If everything in one table - there is no separation of data, redundant data and when u delete data you might lose some information
+
+
+
+è Normalization
+Normalization is a systematic approach of decomposing tables to eliminate data redundancy(repetition) and undesirable characteristics like Insertion, Update and Deletion Anamolies. It is a multi-step process that puts data into tabular form, removing duplicated data from the relation tables.
+https://www.studytonight.com/dbms/database-normalization.php
+Normalization Rule
+Normalization rules are divided into the following normal forms:
+First Normal Form
+Second Normal Form
+Third Normal Form
+BCNF
+First Normal Form (1NF)
+Each table cell should contain a single value.
+Each record needs to be unique.
+
+2NF (Second Normal Form) Rules
+Rule 1- Be in 1NF
+Rule 2- Single Column Primary Key
+What are transitive functional dependencies?
+A transitive functional dependency is when changing a non-key column, might cause any of the other non-key columns to change
+Change in one col may have to make change in other column…….inter functional dependency
+
+3NF (Third Normal Form) Rules
+Rule 1- Be in 2NF
+Rule 2- Has no transitive functional dependencies
+Advantage of removing Transtive Dependency
+The advantage of removing transtive dependency is,
+Amount of data duplication is reduced.
+Data integrity achieved.
+
+
+
+
+è Primary key
+è Composite key
+è Foreign key
+è ER diagram
+è Types of relationship
+
+
+ 
+select * from employees;
+Select first_name, last_name from employees;
+Select * from employees where first_name=“”;
+Select * from employees order by hire_date;
+Select * from employees order by hire_date asc;
+Select * from employees order by hire_date desc;
+Select * from employees order by manager_id asc, salary asc;
+Select * from employees where commision_pct is null;
+Select * from employees where commision_pct is not null;
+Select * from employees where first_name=“John”;
+Select * from employees where first_name like “Jo%”;
+-----------------------------------------------------------------------------------------------
+
+Sql Statements
+DDL - Data Definition Language
+These statements directly effect the table structure.
+Once these statements are executed you cannot rollback
+Create, alter, drop, rename, truncate, comment.
+DML - Data Manipulation Language.
+Used to add or manipulate existing data in the table.
+You can do rollback for DML statements.
+Select, insert, update, delete, merge
+DCL - Data Control Language.
+Used to give permissions based on the user role
+Grant, revoke
+TCL - Transaction Control Language
+Used to control transactions.
+Commit, Rollback, Savepoint
+ 
+The SQL SELECT Statement
+The SELECT statement is used to select data from a database.
+The data returned is stored in a result table, called the result-set.
+SELECT Syntax
+SELECT column1, column2, ...
+FROM table_name;
+The SQL SELECT DISTINCT Statement
+ 
+The SELECT DISTINCT statement is used to return only distinct (different) values.
+Inside a table, a column often contains many duplicate values; and sometimes you only want to list the different (distinct) values.
+SELECT DISTINCT Country FROM Customers;
+SQL WHERE Clause
+The WHERE clause is used to filter records.
+The WHERE clause is used to extract only those records that fulfill a specified condition.                                              	
+SELECT * FROM Customers
+WHERE Country='Mexico';
+The SQL AND, OR and NOT Operators
+The WHERE clause can be combined with AND, OR, and NOT operators.
+The AND and OR operators are used to filter records based on more than one condition:
+The AND operator displays a record if all the conditions separated by AND is TRUE.
+The OR operator displays a record if any of the conditions separated by OR is TRUE.
+The NOT operator displays a record if the condition(s) is NOT TRUE.
+SELECT * FROM Customers
+WHERE Country='Germany' AND City='Berlin';
+SELECT * FROM Customers
+WHERE City='Berlin' OR City='München';
+SELECT * FROM Customers
+WHERE NOT Country='Germany';
+Try it Yourself »
+ 
+The SQL CREATE DATABASE Statement
+The CREATE DATABASE statement is used to create a new SQL database.
+CREATE DATABASE databasename;
+The SQL DROP DATABASE Statement
+The DROP DATABASE statement is used to drop an existing SQL database.
+DROP DATABASE databasename;
+The SQL CREATE TABLE Statement
+The CREATE TABLE statement is used to create a new table in a database.
+CREATE TABLE Persons (
+	PersonID int,
+	LastName varchar(255),
+	FirstName varchar(255),
+	Address varchar(255),
+	City varchar(255) 
+);
+ 
+ 
+Data Types
+Data types define what type of data a column can contain
+It is a label and guideline for sql to understand what type data is expected inside of each column and also it identifies how sql will interact with stored data.
+ 
+https://www.tutorialspoint.com/mysql/mysql-data-types.htm
+ 
+varchar - differentiates between null and empty string
+varchar2 - cannot differentiate between null and empty string
+
+
+ 
+Constraints
+Primary key
+Foreign key
+Unique
+Not null
+Default
+ Check 
+ 
+Create database
+Create database databasename;
+Use databasename;
+Create
+———-
+CREATE TABLE table_name (
+    	column1 datatype,
+    	column2 datatype,
+    	column3 datatype,
+   ....
+);
+ 
+ 
+CREATE TABLE Persons (
+    	PersonID int,
+    	LastName varchar(255),
+    	FirstName varchar(255),
+    	Address varchar(255),
+    	City varchar(255)
+);
+ 
+ 
+Create table using another table
+A copy of an existing table can be created using a combination of the CREATE TABLE statement and the SELECT statement.
+The new table gets the same column definitions. All columns or specific columns can be selected.
+If you create a new table using an existing table, the new table will be filled with the existing values from the old table.
+ 
+ 
+CREATE TABLE new_table_name AS
+	SELECT column1, column2,...
+	FROM existing_table_name
+	WHERE ....;
+ 
+ 
+Constraints while creating table
+SQL constraints are used to specify rules for the data in a table.
+Constraints are used to limit the type of data that can go into a table.
+This ensures the accuracy and reliability of the data in the table.
+If there is any violation between the constraint and the data action, the action is aborted.
+Constraints can be column level or table level. Column level constraints apply to a column, and table level constraints apply to the whole table.
+ 
+CREATE TABLE table_name (
+    	column1 datatype constraint,
+    	column2 datatype constraint,
+    	column3 datatype constraint,
+    	....
+);
+ 
+ 
+The following constraints are commonly used in SQL:
+NOT NULL - Ensures that a column cannot have a NULL value
+UNIQUE - Ensures that all values in a column are different
+PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+FOREIGN KEY - Uniquely identifies a row/record in another table
+CHECK - Ensures that all values in a column satisfies a specific condition
+DEFAULT - Sets a default value for a column when no value is specified
+INDEX - Use to create and retrieve data from the database very quickly
+ 
+Not null constraint
+By default, a column can hold NULL values.
+The NOT NULL constraint enforces a column to NOT accept NULL values.
+This enforces a field to always contain a value, which means that you cannot insert a new record, or update a record without adding a value to this field.
+ 
+CREATE TABLE Persons (
+    	ID int NOT NULL,
+    	 LastName varchar(255) NOT NULL,
+    	FirstName varchar(255) NOT NULL,
+    	Age int
+);
+Unique key constraint
+The UNIQUE constraint ensures that all values in a column are different.
+Both the UNIQUE and PRIMARY KEY constraints provide a guarantee for uniqueness for a column or set of columns.
+A PRIMARY KEY constraint automatically has a UNIQUE constraint.
+However, you can have many UNIQUE constraints per table, but only one PRIMARY KEY constraint per table.
+ 
+ 
+CREATE TABLE Persons (
+    	ID int NOT NULL,
+    	LastName varchar(255) NOT NULL,
+    	FirstName varchar(255),
+    	Age int,
+	UNIQUE (ID)
+);
+ 
+ 
+For multiple columns
+CREATE TABLE Persons (
+    	ID int NOT NULL,
+    	LastName varchar(255) NOT NULL,
+    	FirstName varchar(255),
+    	Age int,
+	CONSTRAINT UC_Person UNIQUE (ID,LastName)
+);
+ 
+ 
+ 
+Primary key constraint
+The PRIMARY KEY constraint uniquely identifies each record in a database table.
+Primary keys must contain UNIQUE values, and cannot contain NULL values.
+A table can have only one primary key, which may consist of single or multiple fields.
+ 
+ 
+CREATE TABLE Persons (
+    	IDint NOT NULL ,
+    	LastName varchar(255) NOT NULL,
+    	FirstName varchar(255),
+    	Age int,
+	PRIMARY KEY (ID)
+);
+ 
+ 
+ 
+For multiple columns
+CREATE TABLE Persons (
+    	ID int NOT NULL,
+    	LastName varchar(255) NOT NULL,
+    	FirstName varchar(255),
+    	Age int,
+	CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+);
+Foreign key constraint
+A FOREIGN KEY is a key used to link two tables together.
+A FOREIGN KEY is a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table.
+The table containing the foreign key is called the child table, and the table containing the candidate key is called the referenced or parent table.
+ 
+ 
+CREATE TABLE Orders (
+    	OrderID int NOT NULL,
+    	OrderNumber int NOT NULL,
+    	PersonID int,
+	PRIMARY KEY (OrderID),
+	FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);
+ 
+ 
+ 
+For multiple columns
+CREATE TABLE Orders (
+    	OrderID int NOT NULL,
+    	OrderNumber int NOT NULL,
+    	PersonID int,
+	PRIMARY KEY (OrderID),
+	CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)
+	REFERENCES Persons(PersonID)
+);
+ 
+Check constraint
+The CHECK constraint is used to limit the value range that can be placed in a column.
+If you define a CHECK constraint on a single column it allows only certain values for this column.
+If you define a CHECK constraint on a table it can limit the values in certain columns based on values in other columns in the row.
+ 
+ 
+CREATE TABLE Persons (
+    	ID int NOT NULL,
+    	LastName varchar(255) NOT NULL,
+    	FirstName varchar(255),
+    	Age int,
+	CHECK (Age>=18)
+);
+ 
+ 
+ 
+For multiple columns
+CREATE TABLE Persons (
+    	ID int NOT NULL,
+    	LastName varchar(255) NOT NULL,
+    	FirstName varchar(255),
+    	Age int,
+    	City varchar(255),
+	CONSTRAINT CHK_Person CHECK (Age>=18 AND City='Sandnes')
+);
+ 
+ 
+ 
+Default constraint
+The DEFAULT constraint is used to provide a default value for a column.
+The default value will be added to all new records if no other value is specified.
+ 
+ 
+ 
+CREATE TABLE Persons (
+    	ID int NOT NULL,
+    	LastName varchar(255) NOT NULL,
+    	FirstName varchar(255),
+    	Age int,
+    	City varchar(255) DEFAULT 'Sandnes'
+);
+ 
+ 
+ 
+The DEFAULT constraint can also be used to insert system values, by using functions like GETDATE():
+ 
+CREATE TABLE Orders (
+    	ID int NOT NULL,
+    	OrderNumber int NOT NULL,
+    	OrderDate date DEFAULT GETDATE()
+);
+ 
+ 
+ 
+Auto increment field
+Auto-increment allows a unique number to be generated automatically when a new record is inserted into a table.
+Often this is the primary key field that we would like to be created automatically every time a new record is inserted.
+ 
+ 
+CREATE TABLE Persons (
+	ID int NOT NULL AUTO_INCREMENT,
+    	LastName varchar(255) NOT NULL,
+    	FirstName varchar(255),
+    	Age int,
+	PRIMARY KEY (ID)
+);
+ 
+ 
+MySQL uses the AUTO_INCREMENT keyword to perform an auto-increment feature.
+By default, the starting value for AUTO_INCREMENT is 1, and it will increment by 1 for each new record.
+To let the AUTO_INCREMENT sequence start with another value, use the following SQL statement:
+ 
+ 
+ALTER TABLE Persons AUTO_INCREMENT=100;
+ 
+ 
+ 
+To get structure of table
+Describe table name;
+Insert into statement
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+ 
+ 
+INSERT INTO table_name
+VALUES (value1, value2, value3, ...);
+ 
+ 
+Insert into select statement
+The INSERT INTO SELECT statement copies data from one table and inserts it into another table.
+INSERT INTO SELECT requires that data types in source and target tables match
+The existing records in the target table are unaffected
+ 
+ 
+INSERT INTO table2
+SELECT * FROM table1
+WHERE condition;
+ 
+ 
+INSERT INTO table2 (column1, column2, column3, ...)
+SELECT column1, column2, column3, ...
+FROM table1
+WHERE condition;
+ 
+Alter table statement
+The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.
+The ALTER TABLE statement is also used to add and drop various constraints on an existing table.
+ 
+Alter table add column
+ALTER TABLE table_name
+ADD column_name datatype;
+ 
+Alter table drop column
+ALTER TABLE table_name
+DROP COLUMN column_name;
+ 
+ 
+Alter table/modify column
+ALTER TABLE table_name
+MODIFY COLUMN column_name datatype;
+ 
+ 
+Alter table unique constraint
+ALTER TABLE Persons
+ADD UNIQUE (ID);
+ 
+ALTER TABLE Persons
+ADD CONSTRAINT UC_Person UNIQUE (ID,LastName);
+ 
+ 
+Drop unique constraint
+ALTER TABLE Persons
+DROP INDEX UC_Person;
+ 
+ 
+Alter table primary key constraint
+ALTER TABLE Persons
+ADD PRIMARY KEY (ID);
+ 
+ 
+ALTER TABLE Persons
+ADD CONSTRAINT PK_Person PRIMARY KEY (ID,LastName);
+ 
+ 
+Alter table drop primary key
+ALTER TABLE Persons
+DROP PRIMARY KEY;
+ 
+ 
+Alter table foreign key constraint
+ALTER TABLE Orders
+ADD FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+ 
+ 
+ALTER TABLE Orders
+ADD CONSTRAINT FK_PersonOrder
+FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+ 
+ 
+Alter table drop foreign key constraint
+ALTER TABLE Orders
+DROP FOREIGN KEY FK_PersonOrder;
+ 
+ 
+Alter table check constraint
+ALTER TABLE Persons
+ADD CHECK (Age>=18);
+ 
+ 
+Alter table drop check constraint
+ALTER TABLE Persons
+DROP CHECK CHK_PersonAge;
+ 
+ 
+Alter table default constraint
+ALTER TABLE Persons
+ALTER City SET DEFAULT 'Sandnes';
+ 
+ 
+Alter table drop default constraint
+ALTER TABLE Persons
+ALTER City DROP DEFAULT;
+ 
+ 
+Drop, delete and truncate
+Drop and truncate
+are DDL statements
+We cannot rollback
+ 
+Delete
+is DML statement
+We can rollback
+ 
+ 
+Drop deletes table and its structure
+Truncate deletes data but table structure will still be there
+Delete will delete data but not table structure.you can limit or filter rows by using where clause. it also invokes all the triggers.
+Drop and truncate deletes all data. it does not invoke the triggers, it ignores the triggers.
+ 
+If you want to delete entire data go with truncate because delete is slow in terms of performance. it will take backup or cache the data because once u rollback it has to get back the deleted data.
+ 
+ 
+Delete statement
+DELETE FROM table_name;
+ 
+DELETE * FROM table_name;
+ 
+DELETE FROM table_name
+WHERE condition;
+ 
+ 
+Rollback;
+ 
+Truncate statement
+Truncate table table name;
+ 
+ 
+Drop table table name;
+ 
+ 
+Update statement
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+ 
+ 
+You will get update warning when you don’t use where clause because it updates all records.
+UPDATE Customers
+SET ContactName='Juan';
+ 
+ 
+You can do arithmetic operations
+If you want to increment salary of employees.
+Select employee_id, first_name, salary+10 as increment_sal from employees;
+ 
+Select employee_id, first_name, (salary+10)*2 as increment_sal from employees;
+ 
+ 
+Get all employees who are working as IT_PROG.
+Select * from employees where job_id=“IT_PROG”;
+ 
+ 
+Get all employees who joined after year 1998
+Select * from employees where hire_date>’1998-12-31’;
+ 
+ 
+Get all employees whose salary is greater than 10000
+Select * from employees where salary>10000;
+ 
+ 
+Get all employees who have commission pct between 0.4 and 5
+Select * from employees where commission_pct between 0.5 and 5;
+ 
+ 
+Get all employees who are it prog and whose salary is greater than 5000
+Select * from employees where job_id=“IT_PROG” and salary>5000;
+ 
+ 
+Get all employees who are not it prog
+Select * from employees where job_id!=“IT_PROG”;
+ 
+ 
+Get all employees who are it prog, hr and clerk
+Select * from employees where job_id in (“IT_PROG”, “hr”, “clerk”);
+ 
+ 
+Get full name of all employees
+Select concat(first_name, ‘ ‘, last_name) as full name from employees;
+ 
+ 
+Get all unique last names
+Select distinct last_name from employees;
+ 
+ 
+Get all employees whose first name starts with ‘a’ and ends with ’n’
+Select * from employees where first_name like “a%n”;
+ 
+% - any number of characters
+_ - for one character
+ 
+
+
+
+
+ SQL
+
+DDL
+data definition language
+table
+
+create table <tablename> (  column_name  datatype constraints,
+                            ......
+                           );
+
+Data type
+- storage
+- kind of value - intepretation
+- range of value
+https://www.tutorialspoint.com/mysql/mysql-data-types.htm
+
+int
+varchar
+float
+date
+time
+
+
+
+
+
+
+DML
+DCL
+-- admin
+grant revoke
+
+permissions
+user , group permission
+
+TCL
+
+---
+----save
+----
+----save
+
+commit
+Start transaction
+Autocommit 
+
+
+Set autom=0
+Start transaction
+….
+Rollback
+Savepoint  abc
+If cond   savepoint abc
+
+ 
+ 
+
+
