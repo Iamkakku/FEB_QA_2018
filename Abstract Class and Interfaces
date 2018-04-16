@@ -1,0 +1,223 @@
+
+
+https://docs.oracle.com/javase/7/docs/api/index.html?java/lang/Object.html
+
+
+Inheritance
+
+2 types
+
+Multiple inheritance and  Multilevel inheritance
+
+
+Java supports only Multilevel inheritance
+
+Interface
+
+inherit qualities / properties of more one class
+
+
+
+Interfaces
+
+definitions with no implementation
+
+Shape
+-length
+-breadth
+-area
+-perimeter
+
+
+public interface Shape {
+// variables in an interface are constants
+public static final int dimension = 2;
+
+public int area(int length, int breadth);
+public int perimeter(int length, int breadth);
+}
+
+Class DrawingObject extends Object { //java.lang.Object
+int length;
+int breadth;
+
+public void print() {
+
+ System.out.println("in DrawingObject print method");
+}
+
+}
+
+Class Square extends DrawingObject implements Shape {
+
+
+public int area (int length, int breadth) {
+  return length* breadth;
+}
+
+public int perimeter(int length, int breadth){
+   return 2*(length+breadth);
+   //return 4*length;
+}
+
+}
+
+Square , Rectangle, Cirle
+
+DrawingObject[] obj = new DrawingObject[3];
+obj[0]= new Square();
+obj[1] = new Rectangle()
+obj[2]= new Circle();
+obj[i].print();
+
+
+Shape[] sobj = new Shape[3];
+sobj[0]= new Square();
+sobj[1] = new Rectangle()
+sobj[2]= new Circle();
+for loop
+obj[i].area();
+
+
+
+Abstract Class has both implemented and 
+unimplemented methods
+
+Calculator   ScientificCalculator  MetricCalculator
+
+
+public abstract class Calculator {
+
+public void add(int i , int j) {
+  s.o.p (i+j);
+}
+public void sub(int i , int j) {
+  s.o.p (i-j);
+}
+
+public abstract void squareRoot(int num);
+
+public abstract void cubeRoot(int num);
+
+}
+
+public class ScientificCalculator extends Calculator{
+
+public  void squareRoot(int num) { 
+   sop ("implemented");
+}
+
+public  void cubeRoot(int num)
+{ 
+   sop ("implemented");
+}
+
+}
+
+public abstract class SomeCalculator extends Calculator{
+
+public abstract void squareRoot(int num) { 
+   sop ("implemented");
+}
+
+
+}
+--------------------
+package com.wbl;
+
+public interface Shape {
+// variables in an interface are constants
+public static final int dimension = 2;
+
+public int area(int length, int breadth);
+public int perimeter(int length, int breadth);
+}
+----------------------
+package com.wbl;
+
+class DrawingObject extends Object { // java.lang.Object
+int length;
+int breadth;
+
+public void print() {
+
+System.out.println("in DrawingObject print method");
+}
+
+}
+
+public class Square extends DrawingObject implements Shape {
+
+public int area(int length, int breadth) {
+return length * breadth;
+}
+
+public int perimeter(int length, int breadth) {
+return 2 * (length + breadth);
+// return 4*length;
+}
+
+public static void main(String args[]) {
+Square s = new Square();
+System.out.println(s.area(10, 50));
+}
+
+}
+
+
+--------------------------
+package com.wbl;
+
+public class Cube extends DrawingObject implements Shape, Shape3D{
+
+public int area(int length, int breadth) {
+return length * breadth;
+}
+
+public int perimeter(int length, int breadth) {
+return 2 * (length + breadth);
+// return 4*length;
+}
+
+public int volume(int a, int b, int c) {
+return a*b*c;
+}
+
+
+public static void main(String args[]) {
+Square s = new Square();
+System.out.println(s.area(10, 50));
+}
+
+
+}
+--------------------
+package com.wbl;
+
+public interface Shape3D {
+
+public int volume(int a, int b, int c);
+
+}
+
+
+
+---------------------------------------------
+package com.wbl;
+
+public interface PublicStore extends Store, Sales{
+
+public void stock();
+}
+
+
+
+interface Store {
+public void printItems();
+}
+
+interface Sales {
+
+public void totalSales();
+
+}
