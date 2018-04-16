@@ -1,0 +1,491 @@
+
+Automation
+Selenium - API only allows us to interact with the browser
+
+manual test cases
+----document
+
+Expected vs actual
+
+Testing API
+
+JUnit
+  -   @test, @ignore, @beforeclass, afterclass
+
+TestNG - Next Generation ---- widely used
+
+- more annotations
+- externalize the classes to be tested ...Loosely coupled...testng.xml
+- dependency checking
+- grouping of tests 
+
+
+testng
+http://testng.org/doc/documentation-main.html
+
+public int countWords(String str) {
+String words[] = str.split(" ");
+return words.length;
+}
+
+
+
+1. special characters- dot comma
+2. Numbers
+3. null
+4. empty
+
+Valid testcase, Invalid testcase, boundary values
+top down, bottom up approaches
+
+Junit we have less annotation also we need to add runwith in the class add the annotation for parmeterised.no need in Testngwe can give priority,add groups also set listner in xml.
+
+@BeforeSuite
+@AfterSuite
+@BeforeTest
+@AfterTest
+@BeforeGroups
+@AfterGroups
+@BeforeClass -  this method will be executed before the test methods in that class <class>
+@AfterClass - this method will be executed before the test methods
+@BeforeMethod -this method will be executed before the test methods
+@AfterMethod -this method will be executed before the test methods
+
+
+
+----------------------------------StringUtil------------------------------------
+package com.wbl.main;
+
+public class StringUtil {
+
+public int countWords(String str) {
+int length = 0;
+
+System.out.println("---length------"+str.length());
+
+if(str.length()==0 ) {
+return 0;
+}
+
+String words[] = str.split(" ");
+length = words.length;
+
+
+
+
+return length;
+}
+
+}
+
+/*
+Hello, i am Shen, how are you
+
+Hello - 1
+i - 1
+am - 1
+
+
+camel case
+Hello, I Am Shen, How Are You
+Hello-I-Am-Shen
+123:
+*/
+--------------------------------StringUtilTest-----------------------------
+package com.wbl.test;
+
+import static org.testng.Assert.assertEquals;
+
+import org.testng.annotations.Test;
+
+import com.wbl.main.StringUtil;
+
+public class StringUtilTest {
+
+StringUtil su = new StringUtil();
+
+@Test
+public void testCaseOne() {
+int actual = su.countWords("This is the first TestNG class.");//actual - the one which is returned by the application
+int expected = 6;
+assertEquals(actual, expected); //actual, expected
+}
+
+@Test
+public void testCaseTwo() {
+int actual = su.countWords("");//actual - the one which is returned by the application
+System.out.println("actual in tc2---"+actual);
+int expected = 0;
+assertEquals(actual, expected); //actual, expected
+}
+
+@Test
+public void testCaseThree() {
+int actual = su.countWords("@#@$%^");//actual - the one which is returned by the application
+int expected = 1;
+assertEquals(actual, expected); //actual, expected
+}
+
+@Test(expectedExceptions = NullPointerException.class)
+public void testCaseFour() {
+int actual = su.countWords(null);//actual - the one which is returned by the application
+int expected = -1;
+assertEquals(actual, expected); //actual, expected
+}
+
+}
+---------------------------------MyPage---------------------------------------
+
+package com.wbl.main;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class MyPage {
+
+WebDriver driver;
+
+/*static {
+System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//resources//chromedriver.exe");
+driver = new ChromeDriver();
+driver.get("http://whiteboxqa.com/login.php");
+//driver.findElement(By.id("#loginButton")).click();
+}*/
+
+
+
+public void setup() {
+System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//resources//chromedriver.exe");
+
+
+}
+
+public void openURL() {
+driver = new ChromeDriver();
+driver.get("http://whiteboxqa.com/login.php");
+}
+
+
+public boolean enterUserName(String uname) {
+driver.findElement(By.id("username")).sendKeys(uname);
+boolean r = false;
+if (uname == null)
+r=false;
+
+if (uname.length()>0)
+r= true;
+
+return r;
+}
+
+public boolean enterPassword (String pwd) {
+driver.findElement(By.id("password")).sendKeys(pwd);
+boolean r = false;
+if (pwd == null)
+r=false;
+
+if (pwd.length()>0)
+r= true;
+
+return r;
+}
+
+public String loginClick() {
+driver.findElement(By.id("login")).click();
+return driver.getTitle();
+
+}
+
+public void freeStudentAccessButtonClick() {
+System.out.println(".......free access button clik");
+}
+
+
+public void closeURL() {
+driver.close();
+}
+
+public void tearDown() {
+driver.quit();
+}
+
+
+
+
+}
+
+
+-------------------------MyPageTest.java--------------------------------
+package com.wbl.test;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import com.wbl.main.MyPage;
+
+public class MyPageTest {
+
+MyPage mp = new MyPage();
+
+@BeforeSuite(alwaysRun=true)
+public void beforeSuite() {
+System.out.println("in the before suite *********");
+mp.setup();
+}
+
+@AfterSuite(alwaysRun=true)
+public void afterSuite() {
+System.out.println("in the after suite *********");
+mp.tearDown();
+}
+
+@BeforeTest
+public void beforeTest() {
+System.out.println("in the before Test ###############");
+
+}
+
+@AfterTest
+public void afterTest() {
+System.out.println("in the after Test ##############");
+
+}
+
+
+
+@BeforeClass(alwaysRun=true)
+public void beforeClass() {
+System.out.println("in the before class...........");
+mp.openURL();
+}
+
+@BeforeMethod
+public void beforeMethod() {
+System.out.println("In the before method <<<<<<<<<<<");
+}
+
+@AfterMethod
+public void afterMethod() {
+System.out.println("In the AFTER method <<<<<<<<<<<");
+}
+
+
+@Test(priority=1, groups= {"SmokeTestGroup"})// expectedExceptions=org.testng.internal.thread.ThreadTimeoutException.class)
+public void testUserName() {
+System.out.println("in mypagetest test user name.........");
+boolean actual = mp.enterUserName("user@gmail.com");
+
+assertEquals(actual, true);
+
+}
+
+@Test(priority=2, dependsOnMethods="testUserName", groups= {"SmokeTestGroup"})
+public void testPassword() {
+System.out.println("in mypagetest test password.........");
+boolean actual = mp.enterPassword("232434");
+
+assertEquals(actual, true);
+
+}
+
+@Parameters({"param1","password"})
+@Test(groups= {"FunctionalTestGroup"})
+public void testLogin(String value, String pass) {
+System.out.println("in mypagetest test login......>>>"+value+" "+pass);
+boolean actual = mp.enterUserName("user@gmail.com");
+assertEquals(actual, true);
+actual = mp.enterPassword("232434");
+assertEquals(actual, true);
+String title= mp.loginClick();
+assertNotNull(title);
+
+
+}
+
+@Test(groups= {"functionalTestGroup"})
+public void testFreeStudentAccess() {
+System.out.println("in mypagetest test free student access........");
+mp.freeStudentAccessButtonClick();
+
+}
+
+@AfterClass(alwaysRun=true)
+public void afterClass() {
+System.out.println("in the after class...........");
+mp.closeURL();
+}
+
+
+@DataProvider(name="data")
+public Object[][] sendData(){
+return new Object[][] {
+{"uname1@gmail.com","pass1"},
+{"uname23@somemail.com","23424"}
+};
+}
+
+@Test(dataProvider="data")
+public void printData(String uname, String password) {
+System.out.println("uname --->"+uname +" passwd---->"+password);
+}
+}
+----------------------------------------HomePage.java------------------------------------------
+package com.wbl.main;
+
+public class HomePage extends MyPage{
+
+public HomePage() {
+System.out.println("in Home Page Test");
+}
+
+
+public void clickHeaderLink() {
+System.out.println("in Home Page Click Header Link..........");
+}
+
+}
+-------------------------------------------HomePageTest.java-------------------------------------
+package com.wbl.test;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import com.wbl.main.HomePage;
+
+public class HomePageTest {
+
+HomePage hp = new HomePage();
+
+@BeforeClass
+public void homePageBeforeClass() {
+System.out.println("in Home page before class");
+}
+
+@Test
+public void testClickHeaderLinks() {
+hp.clickHeaderLink();
+
+}
+
+@AfterClass
+public void homePageAfterClass() {
+System.out.println("in Home page After class");
+}
+
+
+}
+
+
+-----------------------------------------------------TestNG.xml-------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="MyPageSuite">
+<test name="SmokeTest">
+<groups>
+<run>
+<include name="SmokeTestGroup"></include>
+
+</run>
+</groups>
+
+
+<classes>
+<class name="com.wbl.test.MyPageTest" />
+
+
+</classes>
+</test>
+
+<test name="FunctionalTest">
+<parameter name="param1" value="idnamegiven"></parameter>
+<parameter name="password" value="pass"></parameter>
+<groups>
+<run>
+<include name="FunctionalTestGroup"></include>
+
+</run>
+</groups>
+
+<classes>
+<class name="com.wbl.test.MyPageTest" />
+<class name="com.wbl.test.HomePageTest" />
+
+
+</classes>
+
+</test>
+
+<test name="Regression Test" enabled="false">
+<classes>
+<class name="com.wbl.test.MyPageTest">
+
+</class>
+
+</classes>
+
+</test>
+
+</suite>
+
+-----------------------------------------------------------------
+
+
+Groups
+data provider
+parameter
+
+-----------------
+
+test  --   test case
+before suite - 
+after suite
+
+before class
+after class
+
+before test
+after test
+
+before method 
+after method
+
+-----------------------------------------
+
+Difference between Sanity  Vs Smoke
+
+Sanity is unscripted
+Smoke developer can also do it
+SMOKE TESTING IS TO DETERMINE WEATHER THE PROGRAMME IS STABLE TO  BE TESTED FURTHER
+
+build1
+build2
+..
+build 15      Smoke test-  it is well scripted
+....
+upto first release 
+
+
+Parameter
+
+
+
+
+
+
+
+
+
