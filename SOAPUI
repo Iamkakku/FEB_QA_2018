@@ -1,0 +1,157 @@
+What is Webservices? 
+Service available over the web
+Enables communication between application over the web provides a standard protocol/format for communication
+Platform independent communication
+Using web services two different application(implementation) can talk to each other and exchange data/information. 
+A software that makes itself available through out the web and which connects two systems.
+http://webservicex.net/globalweather.asmx?op=GetWeather
+http://www.webservicex.com/globalweather.asmx?WSDL
+
+Real time simple example:-
+Waiter performs roles of web services.
+Communicate between two application and making sure the communication is proper and successful.
+
+https://www.makemytrip.com/
+Airlines never allow to access databases.
+Cancel fight but its takes hour to update ..so possible in real time.
+So we can do one thing.api→ all websites expose with API common format Req. and Respose.
+
+Server(Service Provider):- A web service Provider Develops/ Implements the application (web service) and makes it available over the internet (web).
+Client sends request 
+
+
+Web services implements in two types::-
+SOAP:-
+Simple Object Access Protocol
+Medium- HTTP (POST)
+Format- XML
+REST
+Representational state Transfer
+Medium:- HTTP(POST, GET, PUT, DELETE…)
+Format:- XML/JSON/TEXT
+
+WSDL
+If you are consumer you need to know 
+What are the services available?
+What are the request and response parameters?
+How to call the web services?
+Service provider publishes that describes all attributes of the web services. This is XML based interface and is called Web Services Description Language (WSDL)
+WSDL- It is an XML based interface that is used to describe the functionaries of the web services.
+Server creates wsdl and clients get it.
+
+
+
+Who provides WSDL? What is the full form of WSDL? Contents of WSDL?
+Developer provides WSDL (Web Service Description Language) which contains
+Web Services Description Language is an XML language used to describe a Web service's functionality. The Web service's description tells a computer what the service is called, what its parameters are and how the data will structure its returns. It is also used with simple object access protocol, or SOAP, which specifies how structured information is exchanged over a computer network.
+
+
+-Definition of webservice
+Web Services are given definitions with Web services description language or WDSL in order for them to be discovered by and interfaced with services and apps on computers. WDSL is one of the common languages used to write Web service interfaces. The Web service endpoint describes the point of contact for a service by stating the physical location of the service, or what computer it is coming from, and a formal definition of the interface for programs that are attempting to communicate with the service.
+ 
+ 
+ 
+ 
+-Messages
+An endpoint definition can have an abstract description or a concrete description. An abstract description tells a program how to interface without referencing the type of technology used to host a Web service that transmits messages. This type of WDSL description is broken up into port type, operation and message. Port type sorts messages into groups of functions called operations, which is a specific action done by a service and operations, which consist of input and output parameters. A concrete description is the implemented technology used to create an abstract interface definition. It is the physical connection or physical transport protocol that defines the port, binding (requirements needed for a service to connect with the endpoint) the service or port and the physical address that a service accesses with the specified WSDL protocol.
+-Service end point
+The endpoint is a connection point where HTML files or active server pages are exposed. Endpoints provide information needed to address a Web service endpoint. The endpoint provides a reference or specification that is used to define a group or family of message addressing properties and give end-to-end message characteristics, such as references for the source and destination of endpoints, and the identity of messages to allow for uniform addressing of "independent" messages. The endpoint can be a PC, PDA, or point-of-sale terminal.
+ 
+ 
+ 
+ 
+-Bindings (SOAP request and Response)
+ 
+UDDI:-( Universal Description, Discovery and Integration.)
+If client and server don’t know each other all the service provider publishes his web services  (theory wsdl) on an online directory from where consumer can query and search the web services. This is online register/directory is called UDDI.
+UDDI-Universal Description, Discovery and Integration. It is an XML based standard for publishing and finding web services.  
+SOAP
+Protocol (http/sftp/..)
+Platform /Language independent s
+WSDL (web service description Language)
+In built security
+Xml
+Heavy weight
+In built security(w3c standard)
+
+
+API(Application program Inteface): An Interface which connects two programs/softwares.
+Eg. REST
+It will be available on libraries
+It will be available on web
+-Architecture
+-It follows https protocol
+-JSON/XML/PlainText/CSV
+-Light weight
+-Easy to understand
+- Implements some methods to get security
+
+What we have to test in webservice..?
+-Functional testing, Security testing, Load testing, Status code, Schema compliance, Content-type, Response data, Data types, Valid/invalid status code
+SOAPUI→ Tool test SOAP Webservices..now a days use to test RestAPI also.
+Open source and paid version
+TestSuite→Combination of test cases→ test steps
+Assertions→ Expected Value vs Actual value → Success/Failure
+
+What is functional testing?
+CRUD→
+Web services:- Request and Response(Headers and body(payload))
+Request→ Header, Body(Payload), Authentication,Request payload→ Request body
+Response→ Header, body (payload)
+		Content type, Content length, Data count, Data order, Element present , Value present  Payload→Response body, Content type
+Status code
+HTTP Error Message:
+
+200 OK
+201 Created 
+400 Bad requests
+404 Page not found
+401 Unauthorized
+405 Method Not Allowed
+409 conflicts
+500 Internal Server Errors
+ 
+REST Commands are:
+GET - Provides a read only access to a resource.
+PUT - Used to Update Resource 
+DELETE - Used to remove a resource.
+POST - Used to Create resource 
+OPTIONS - Used to get the supported operations on a resource.
+
+Valid/invalid inputs/boundary values
+Authentication test
+Explain WSDL:-
+It is in xml format. 
+WSDL: definition -> main root tag for WSDL
+Steps:-
+Services:- what are service available inside that we have “port name” and “binding”
+These are types of ports available within the service.
+That particular port name binding 
+“binding “ contains which type of “operation” you can perform.
+Inside “operation” you can see message tag. Two types of message. “Input” and “output”
+Inside “message” you can see “parameter”
+“types” data types present in SOAP
+
+1. Test Structure (interview)
+SoapUI structures functional tests into three levels; TestSuites, TestCases and TestSteps.
+A TestSuite is a collection of TestCases that can be used for grouping functional tests into logical units. Any number of TestSuites can be created inside a soapUI project to support massive testing scenarios.
+A TestCase is a collection of TestSteps that are assembled to test some specific aspect of your service(s). You can add any number of TestCases to a containing TestSuite and even modularize them to call each other for complex testing scenarios.
+TestSteps are the "building blocks" of functional tests in soapUI. They are added to a TestCase and used control the flow of execution and validate the functionality of the service(s) to be tested.
+
+What is Property transfer in SOAPUI? Steps to perform Property transfer?
+Property transfer is retrieving the value from the response and storing in test case, test suite or project level and use that particular value as an input in other test steps.
+We can do property transfer by groovy scripting.
+Steps:
+Add property transfer step in test case
+Add property name
+Then provide Source – from test step, property as Response and XPath
+Provide Target – which level to store the property
+In that particular level go to Custom Properties and provide the name for property.
+After this give that property name as Property in the target step and run.
+Steps for soapui testing:-
+Create project:- Now depending upon the project, we need to import SOAP/REST protocol. We will create a new SOAP Project.
+Enter the path of the WSDL request.
+Create test suite
+Create test case
+Add test step(Test Request, ,REST Test Request, HTTP Test Request, JDBC Request, create property files, Groovy  scripts)
+
