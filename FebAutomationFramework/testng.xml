@@ -3,8 +3,8 @@
 <suite name="AFSuite">
 
 <listeners>
-<listener class-name="com.wbl.utils.LoggerListener"></listener>
-<listener class-name="com.wbl.utils.CustomReporter"></listener>
+<listener class-name="com.wbl.utility.LoggerListener"></listener>
+<listener class-name="com.wbl.utility.CustomReporter"></listener>
 </listeners>
 
 

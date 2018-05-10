@@ -21,17 +21,18 @@ public class WebDriverUtil {
 			switch(browsername){
 			
 			case "chrome":
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/resources/drivers/chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\resources\\chromedriver.exe");
+				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/resources/chromedriver.exe");
 				driver = new ChromeDriver();
 				break;
 				
 			case "firefox":
-				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/resources/drivers/geckodriver.exe");
+				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/resources/geckodriver.exe");
 				driver = new FirefoxDriver();
 				break;
 				
 			case "ie":
-				System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "/resources/drivers/IEDriverServer.exe");
+				System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "/resources/IEDriverServer.exe");
 				driver = new InternetExplorerDriver();
 				break;
 				
@@ -40,12 +41,12 @@ public class WebDriverUtil {
 				break;
 				
 			case "phantom":
-				System.setProperty("phantomjs.binary.path", System.getProperty("user.dir") + "/resources/drivers/phantomjs.exe");
+				System.setProperty("phantomjs.binary.path", System.getProperty("user.dir") + "/resources/phantomjs.exe");
 				driver = new PhantomJSDriver();
 				break;
 
 			default:
-				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/resources/drivers/geckodriver.exe");
+				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/resources/geckodriver.exe");
 				driver = new FirefoxDriver();
 			}
 			

@@ -29,7 +29,7 @@ public class HomePageTest extends BaseTest{
 		hp = new HomePage(driver);
 	
 		String actual = hp.getRecordingsText();
-		assertEquals(actual,"Recordings");
+		assertEquals(actual,"Recordings....");
 	}
 	
 	@Test(priority=3)
